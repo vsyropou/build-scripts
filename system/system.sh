@@ -1,4 +1,4 @@
-sudo apt-get install vlc git subversion unity-tweek-tool compizconfig-settings-manager rsnapshot emacs
+sudo apt-get install vlc git subversion unity-tweek-tool compizconfig-settings-manager rsnapshot emacs nautilus-open-terminal
 
 # skype
 sudo dpkg --add-architecture i386
