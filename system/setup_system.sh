@@ -20,6 +20,7 @@ sudo apt-get -y install htop
 sudo apt-get -y install texlive-full
 sudo apt-get -y install yakuake
 sudo apt-get -y install snap
+sudo apt-get -y install synaptic
 
 sudo snap install vlc
 

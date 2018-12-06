@@ -39,12 +39,22 @@ git clone https://github.com/tensorflow/models.git
 mv  models/tutorials/image/cifar10 tensorflow-benchmark
 rm -rf models
 
-docker run --runtime=nvidia -itd --rm tensorflow/tensorflow:latest-gpu  bash
 
+
+docker run --runtime=nvidia -it -v ~/repos/tensorflow-benchmark:/repos -p 8888:8888 -p 6006:6006 tensorflow/tensorflow:latest-gpu
 export CONTAINER_ID=`docker ps | grep "tensorflow/tensorflow:latest-gpu" | awk '{ print $1 }'`
-
-docker exec -itd ${CONTAINER_ID} mkdir /workdir
-
+docker exec -it ${CONTAINER_ID} mkdir /workdir
 docker cp tensorflow-benchmark ${CONTAINER_ID}:/workdir
-
 docker exec -it ${CONTAINER_ID} python /workdir/tensorflow-benchmark/cifar10_train.py
+
+docker exec -it ${CONTAINER_ID} tensorboard --logdir=/tmp
+
+
+
+# w/o jupiter
+docker build -f ~/repos/tensorflow/tensorflow/tools/dockerfiles/dockerfiles/gpu.Dockerfile --build-arg TF_PACKAGE=tensorflow-gpu -t tfgpu .
+export CONTAINER_ID=`docker ps | grep "tfgpu" | awk '{ print $1 }'`
+docker exec -it ${CONTAINER_ID} python /workdir/tensorflow-benchmark/cifar10_train.py
+docker run --runtime=nvidia -it -v ~/repos/tensorflow-benchmark:/my-devel  -p 6006:6006 tfgpu
+docker exec -it ${CONTAINER_ID} tensorboard --logdir=/tmp
+
