@@ -4,6 +4,11 @@ mkdir -p ~/repos
 
 
 # system
+# add ppas
+sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
+sudo add-apt-repository ppa:serge-rider/dbeaver-ce
+sudo add-apt-repository ppa:transmissionbt/ppa
+sudo add-apt-repository ppa:mystic-mirage/pycharm
 sudo apt-get update
 
 sudo apt-get -y install git
@@ -21,19 +26,15 @@ sudo apt-get -y install texlive-full
 sudo apt-get -y install yakuake
 sudo apt-get -y install snap
 sudo apt-get -y install synaptic
-
-sudo snap install vlc
-
-# add ppas
-sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
-sudo add-apt-repository ppa:serge-rider/dbeaver-ce
-
-sudo apt-get update
-
+sudo apt-get -y install virtualbox
 sudo apt-get -y install dbeaver-ce
 sudo apt-get -y install remmina
 sudo apt-get -y install remmina-plugin-rdp
 sudo apt-get -y install libfreerdp-plugins-standard
+sudo apt-get -y install transmission
+
+sudo snap install vlc
+
 
 # python
 sudo apt-get -y upgrade python3
@@ -45,6 +46,11 @@ sudo apt-get -y install python-pip
 cd /repos/build_scripts
 wget https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
+
+# pycharm
+
+sudo apt-get update
+sudo apt-get install pycharm-community
 
 # skype
 sudo apt-get install gdebi-core
@@ -79,4 +85,5 @@ sudo ldconfig
 
 # todo
 #   setup and run rsnapshot backup
-#  
+#
+

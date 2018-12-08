@@ -1,7 +1,7 @@
 
-# git clone https://github.com/root-project/root.git
-# cd root
-# git checkout -b v<blah> v<foo>
+git clone https://github.com/root-project/root.git
+cd root
+git checkout -b v<blah> v<foo>
 
 sudo apt-get install -y dpkg-dev
 sudo apt-get install -y make
